@@ -1,7 +1,8 @@
 <template>
  <div class="container">
    <!-- <button @click="toggleAdd" :class="show">Add Task?</button> -->
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+   <Header @toggleDisplayAddTask="toggleAdd"></Header>
+   <b-form @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-group
         id="input-group-1"
         label="Task Name:"
@@ -64,13 +65,18 @@
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
 
-   <b-button :pressed.sync="show" :variant="show ? 'danger' : 'success'">{{buttonText}}</b-button>
   </div>
 </template>
 
+
 <script>
+import Header from "./Header.vue"
 export default {
-      data() {
+  name: 'AddTaskForm',
+  components: {
+    Header
+  },
+  data() {
       return {
         // Note 'isActive' is left out and will not appear in the rendered table
         show: false,
@@ -125,17 +131,10 @@ export default {
           this.show = true
         })
       },
-      // toggleAdd(){
-      //   this.show = !this.show
-      //   if (this.show){
-      //     this.buttonText = 'Close'
-      //   }
-      //   else{
-      //     this.buttonText = 'Add Task'
-      //   }
-        
+      toggleAdd(){
+        this.show = !this.show
 
-      // }
+      }
     }
     
 }
