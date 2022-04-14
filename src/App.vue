@@ -7,12 +7,12 @@
     <AddTaskForm  @add-new-task="pushNewTask"></AddTaskForm>
     <div class="container">
       <b-row>
-        <b-col md="2">
-          <b-form-input v-model="filter" type="search" placeholder="Search"></b-form-input>
+        <b-col md="4">
+          <b-form-input v-model="filter" type="search" placeholder="Search Task"></b-form-input>
         </b-col>
       </b-row>
     </div>
-    <BootstrapVueDatatable :posts="tasks" :filter="filter"></BootstrapVueDatatable>
+    <BootstrapVueDatatable :posts="tasks" :filter="filter" @delete-task="deleteTask"></BootstrapVueDatatable>
   </div>
 </template>
 
@@ -54,8 +54,8 @@ export default {
      
     },
     async deleteTask(id){
-      
-      const res = await fetch (`http://localhost:5000/tasks/{id}`, {
+      console.log(`id to delete in deleteTask(id): ${id}`)
+      const res = await fetch (`http://localhost:5000/tasks/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-type': 'application/json',
@@ -67,7 +67,6 @@ export default {
         this.tasks = this.tasks.filter((task) => task.id !== id)
       }
       
-      this.tasks.push(data)
      
     }
   },

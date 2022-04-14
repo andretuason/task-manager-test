@@ -1,31 +1,13 @@
 {
   "tasks": [
     {
-      "id": 1,
+      "id": 1000,
       "taskName": "Fleesk jerbulons",
       "durationHours": 5,
       "status": "Finished",
       "startDate": null,
       "endDate": null,
       "notes": null
-    },
-    {
-      "taskName": "123",
-      "durationHours": "123",
-      "status": "Not started",
-      "startDate": "2022-04-10",
-      "endDate": "2022-04-12",
-      "notes": "123",
-      "id": 2
-    },
-    {
-      "taskName": "Dat new task",
-      "durationHours": "69",
-      "status": "In Progress",
-      "startDate": "2022-04-10",
-      "endDate": "2022-04-11",
-      "notes": "dat task doe",
-      "id": 3
     },
     {
       "taskName": "hugas pwet",
@@ -37,31 +19,13 @@
       "id": 4
     },
     {
-      "taskName": "Clean cat pooper",
-      "durationHours": "1",
+      "taskName": "hugas pwet",
+      "durationHours": "2",
       "status": "Pending",
       "startDate": "2022-04-10",
-      "endDate": "2022-04-10",
-      "notes": "Mabaho na",
-      "id": 5
-    },
-    {
-      "taskName": "11",
-      "durationHours": "123",
-      "status": "Pending",
-      "startDate": null,
-      "endDate": null,
-      "notes": "11",
-      "id": 6
-    },
-    {
-      "taskName": "111",
-      "durationHours": "55",
-      "status": "In Progress",
-      "startDate": "2022-04-11",
       "endDate": "2022-04-12",
-      "notes": "hirap naman",
-      "id": 7
+      "notes": "hirap may masakit na blade",
+      "id": 2
     },
     {
       "taskName": "Apply Caronia",
@@ -71,6 +35,15 @@
       "endDate": "2022-04-04",
       "notes": "mej madali lang pards",
       "id": 8
+    },
+    {
+      "taskName": "Mag igib ng kahoy",
+      "durationHours": "2",
+      "status": "In Progress",
+      "startDate": "2022-04-14",
+      "endDate": "2022-04-12",
+      "notes": "This should fail but doesn't because end date < start date",
+      "id": 1001
     }
   ],
   "oldtasks": [
