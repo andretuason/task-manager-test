@@ -1,6 +1,5 @@
 <template>
  <div class="container">
-   <!-- <button @click="toggleAdd" :class="show">Add Task?</button> -->
    <Header @toggleDisplayAddTask="toggleAdd"></Header>
    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-group
@@ -60,9 +59,10 @@
         max-rows="6"
         > </b-form-textarea>
       </b-form-group>
-
-      <b-button type="submit" variant="primary">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
+      <div class="buttonGroup">
+        <b-button type="submit" variant="primary">Submit</b-button>
+        <b-button type="reset" variant="danger">Reset</b-button>
+      </div>
     </b-form>
 
   </div>
@@ -78,14 +78,7 @@ export default {
   },
   data() {
       return {
-        // Note 'isActive' is left out and will not appear in the rendered table
         show: false,
-        // form: {
-        //   email: '',
-        //   name: '',
-        //   food: null,
-        //   checked: []
-        // },
         task:{
             taskName: null,
             durationHours: null,
@@ -102,13 +95,7 @@ export default {
         ],
         
         buttonText: 'Add Task'
-        // foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
-        // items: [
-        //   { isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
-        //   { isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-        //   { isActive: false, age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-        //   { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }
-        // ]
+
       }
     },
      methods: {
@@ -143,11 +130,21 @@ export default {
 <style scoped>
 .container {
   text-align: left;
-  max-width: 500px;
+  max-width: 1000px;
   margin: 30px auto;
   overflow: auto;
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 20px;
+  line-height: 2em;
+  
+}
+
+.buttonGroup{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 30px 0;
+  
 }
 </style>

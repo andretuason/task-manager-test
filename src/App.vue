@@ -3,8 +3,16 @@
     <!-- <div :key="task.id" v-for="task in tasks">
       <p>{{task}}</p>
     </div> -->
+
     <AddTaskForm  @add-new-task="pushNewTask"></AddTaskForm>
-    <BootstrapVueDatatable :posts="tasks" ></BootstrapVueDatatable>
+    <div class="container">
+      <b-row>
+        <b-col md="2">
+          <b-form-input v-model="filter" type="search" placeholder="Search"></b-form-input>
+        </b-col>
+      </b-row>
+    </div>
+    <BootstrapVueDatatable :posts="tasks" :filter="filter"></BootstrapVueDatatable>
   </div>
 </template>
 
@@ -23,6 +31,7 @@ export default {
   data(){
     return{
       tasks: [],
+      filter: ""
     }
   },
   methods: {
@@ -33,7 +42,6 @@ export default {
     },
     async pushNewTask(task){
       
-      console.log(task)
       const res = await fetch ('http://localhost:5000/tasks', {
         method: 'POST',
         headers: {
@@ -43,6 +51,23 @@ export default {
       })
       const data = await res.json()
         this.tasks.push(data)
+     
+    },
+    async deleteTask(id){
+      
+      const res = await fetch (`http://localhost:5000/tasks/{id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        
+      })
+
+      if (res.status === 200){
+        this.tasks = this.tasks.filter((task) => task.id !== id)
+      }
+      
+      this.tasks.push(data)
      
     }
   },
